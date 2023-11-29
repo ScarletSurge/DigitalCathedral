@@ -243,28 +243,66 @@ using DigitalCathedral;
 // Console.WriteLine(animal == animal2);
 // Console.WriteLine(animal.Equals(animal2));
 
+// var animal = new Animal(1, 1.1, "2.2");
+// Dictionary<Animal, string> collection = new Dictionary<Animal, string>();
+// collection.Add(animal, string.Empty);
+// var found = collection.TryGetValue(animal, out _);
+// animal.ChangeValue1();
+// found = collection.TryGetValue(animal, out _);
+// 
+// var collectionEnumerable = collection as IEnumerable<KeyValuePair<Animal, string>>;
+// var array = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+// 
+// Console.WriteLine(Enumerable.Aggregate(Enumerable.Where(Enumerable.Select(array, x => x * 2), x => x % 3 == 0), 1, (accum, value) => accum * value));
+// 
+// Console.WriteLine(array.Select(x => x * 2)
+//     .Where(x => x % 3 == 0)
+//     .Aggregate(1, (accum, value) => accum * value));
+// 
+// 
+// 
+// foreach (var item in collection)
+// {
+//     // TODO: work with value
+// }
+// 
+// Student s1 = new Student("", "", "", "", "", 3);
+// Student s2 = new Student("", "", "", "", "", 3);
+// Console.WriteLine(s1.Equals(s2));
+// 
+// try
+// {
+//     Student st = new Student("Ivanov", "Ivan", "Ivanovich", "M1O-301B-21", "1234-123-12", 3);
+//     
+//     Console.WriteLine("No exceptions were thrown");
+// }
+// catch (ArgumentNullException ex)
+// {
+//     // 
+//     Console.WriteLine(ex.Message);
+// }
+// catch (ArgumentException ex)
+// {
+//     // 
+//     Console.WriteLine(ex.Message);
+// }
+// Console.WriteLine("after try/catch...");
+// 
+// var fraction = new Fraction(2, 5);
+// var fraction2 = new Fraction(1, 7);
+// Console.WriteLine(fraction.Equals(fraction2));
+// 
+// var multiplicationResult = Fraction.Multiplication(fraction, fraction2);
+// 
+// Console.WriteLine(fraction.CompareTo(fraction2));
+
 try
 {
-    Student st = new Student("Ivanov", "Ivan", "Ivanovich", "M1O-301B-21", "1234-123-12", 3);
-    
-    Console.WriteLine("No exceptions were thrown");
-}
-catch (ArgumentNullException ex)
-{
-    // 
-    Console.WriteLine(ex.Message);
+    IEqualityComparer<int> equalityComparer = new IntEqualityComparer();
+    var values = Enumerable.Range(1, 10).ToArray();
+    values.GetCombinations(3, equalityComparer);
 }
 catch (ArgumentException ex)
 {
-    // 
     Console.WriteLine(ex.Message);
 }
-Console.WriteLine("after try/catch...");
-
-var fraction = new Fraction(2, 5);
-var fraction2 = new Fraction(1, 7);
-Console.WriteLine(fraction.Equals(fraction2));
-
-var multiplicationResult = Fraction.Multiplication(fraction, fraction2);
-
-Console.WriteLine(fraction.CompareTo(fraction2));

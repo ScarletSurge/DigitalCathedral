@@ -6,10 +6,16 @@ namespace DigitalCathedral
     {
         private const double Epsilon = 1e-9;
         
-        private readonly int _value1;
+        private int _value1;
         private readonly double _value2;
         private readonly string _value3 = "My awesome string";
 
+        public void ChangeValue1()
+        {
+            var randomSource = new Random();
+            _value1 = randomSource.Next(-1000, 1001);
+        }
+        
         public Animal(
             int value1,
             double value2,
@@ -47,7 +53,6 @@ namespace DigitalCathedral
         public override int GetHashCode()
         {
             HashCode result = new HashCode();
-            result.Add(_value1);
             result.Add(_value2);
             result.Add(_value3);
             return result.ToHashCode();
