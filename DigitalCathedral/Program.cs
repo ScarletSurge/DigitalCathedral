@@ -276,6 +276,7 @@ using DigitalCathedral;
 // var multiplicationResult = Fraction.Multiplication(fraction, fraction2);
 // 
 // Console.WriteLine(fraction.CompareTo(fraction2));
+
 {
     int value = 10;
     object o = (object) value;
@@ -290,10 +291,91 @@ while (iterator.MoveNext())
     Console.WriteLine((int)iterator.Current);
 }
 
-foreach (var value in impl)
+(impl as IEnumerable<int>).
+
+Enumerable.Cast<int>(impl);
+
+void Foo2(int value1, string value2)
 {
-    Console.WriteLine(value);
+    Console.WriteLine(nameof(Foo2));
 }
+
+void Foo(int value1, string value2)
+{
+    Console.WriteLine(nameof(Foo));
+}
+
+// System.Object <- System.Delegate <- System.MulticastDelegate
+//MulticastDelegate
+Action<int, string>? action = null;
+action?.Invoke(1, "foo");
+
+Console.WriteLine();
+
+action?.Invoke(1, "foo");
+
+string GetString()
+{
+    return "got string";
+}
+
+int delegateDemo = 10;
+delegateDemo.ToString();
+Func<string> func = null;
+func += delegateDemo.ToString;
+func += GetString;
+//string value = func?.Invoke();
+//Console.WriteLine(value);
+//List<string?> gotStrings = new List<string?>();
+//Action, Predicate<int> Func<int, bool>
+//Comparison<T> Func<T, T, int>
+//EventHandler Action<object?, EventArgs>
+//EventHandler<string>
+
+double LeftRectanglesIntegral(
+    Integrand integrand,
+    (double, double) bounds,
+    double epsilon)
+{
+    throw new NotImplementedException();
+}
+
+double IntegrandFunc(double value)
+{
+    return value * 2 + 1;
+}
+
+Integral integral = null;
+integral += (f, bounds, eps) =>
+{
+    
+};
+integral?.Invoke(IntegrandFunc, (5.0, 10.0), 0.0001);
+
+public delegate double Integrand(
+    double value);
+    
+public delegate double Integral(
+    Integrand integrand,
+    (double, double) bounds,
+    double epsilon);
+
+//foreach (var @delegate in func?.GetInvocationList() ?? Enumerable.Empty<Delegate>())
+//{
+//    gotStrings.Add(@delegate.DynamicInvoke() as string);
+//}
+//
+//foreach (var item in gotStrings)
+//{
+//    Console.WriteLine(item);
+//}
+
+//(impl as IEnumerable<int>).All()
+//
+//foreach (var value in impl)
+//{
+//    Console.WriteLine(value);
+//}
 
 //IComparer<T>
 //IEqualityComparer<int>;

@@ -25,7 +25,7 @@ public sealed class Student:
         }
         _surname = surname;
 
-        _name = name ?? throw new ArgumentNullException(nameof(name));
+        _name = (name ?? throw new ArgumentNullException(nameof(name)));
         _patronymic = patronymic ?? throw new ArgumentNullException(nameof(patronymic));
         _group = group ?? throw new ArgumentNullException(nameof(group));
         _recordBookId = recordBookId ?? throw new ArgumentNullException(nameof(recordBookId));
