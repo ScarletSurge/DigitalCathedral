@@ -291,9 +291,20 @@ while (iterator.MoveNext())
     Console.WriteLine((int)iterator.Current);
 }
 
-(impl as IEnumerable<int>).
+var iterator2 = ((IEnumerable<int>)impl).GetEnumerator();
+while (iterator2.MoveNext())
+{
+    var value = iterator2.Current;
+    if (value == 2)
+    {
+        break;
+    }
+    Console.WriteLine(iterator2.Current);
+}
 
-Enumerable.Cast<int>(impl);
+//(impl as IEnumerable<int>).
+
+//Enumerable.Cast<int>(impl);
 
 void Foo2(int value1, string value2)
 {
@@ -348,7 +359,7 @@ double IntegrandFunc(double value)
 Integral integral = null;
 integral += (f, bounds, eps) =>
 {
-    
+    throw new NotImplementedException();
 };
 integral?.Invoke(IntegrandFunc, (5.0, 10.0), 0.0001);
 

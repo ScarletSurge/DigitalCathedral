@@ -3,8 +3,18 @@
 try
 {
     IEqualityComparer<int> equalityComparer = new IntEqualityComparer();
-    var values = new int [] { 1, 2, 3, 4, 5 };
-    values.GetCombinations(3, equalityComparer);
+    var i = 0;
+    foreach (var permutation in new IEnumerableImpl().Prepend(8).Append(15).GetAllPermutations(EqualityComparer<int>.Default).Take(1000))
+    {
+        // Console.Write("[ ");
+        // foreach (var permutationComponent in permutation)
+        // {
+        //     Console.Write($"{permutationComponent} ");
+        // }
+        // Console.WriteLine("]");
+        
+        Console.WriteLine($"{++i}: [ {string.Join(" ", permutation)} ]");
+    }
 }
 catch (ArgumentException ex)
 {
