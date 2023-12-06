@@ -1,4 +1,4 @@
-﻿namespace DigitalCathedral;
+﻿namespace DigitalCathedral.Task1;
 
 public sealed class Student:
     IEquatable<Student>
@@ -8,7 +8,7 @@ public sealed class Student:
     private readonly string _name;
     private readonly string _patronymic;
     private readonly string _group;
-    private readonly string _zachetka;
+    private readonly string _recordBookId;
     private readonly int _course;
 
     public Student(
@@ -16,7 +16,7 @@ public sealed class Student:
         string? name,
         string? patronymic,
         string? group,
-        string? zachetka,
+        string? recordBookId,
         int course)
     {
         if (surname is null)
@@ -28,7 +28,7 @@ public sealed class Student:
         _name = name ?? throw new ArgumentNullException(nameof(name));
         _patronymic = patronymic ?? throw new ArgumentNullException(nameof(patronymic));
         _group = group ?? throw new ArgumentNullException(nameof(group));
-        _zachetka = zachetka ?? throw new ArgumentNullException(nameof(zachetka));
+        _recordBookId = recordBookId ?? throw new ArgumentNullException(nameof(recordBookId));
         // if (!(course >= 1 && course <= 4))
         if (course < 1 || course > 4)
         {
@@ -49,15 +49,15 @@ public sealed class Student:
     public string Group =>
         _group;
 
-    public string Zachetka =>
-        _zachetka;
+    public string RecordBookId =>
+        _recordBookId;
 
     public int Course =>
         _course;
 
     public override string ToString()
     {
-        return "";
+        return $"Surname = \"{Surname}\", Name = \"{Name}\", Patronymic = \"{Patronymic}\", Group = \"{Group}\", Record book id = \"{RecordBookId}\", Course = {Course}";
     }
 
     public override int GetHashCode()
@@ -67,7 +67,7 @@ public sealed class Student:
         result.Add(_name);
         result.Add(_patronymic);
         result.Add(_group);
-        result.Add(_zachetka);
+        result.Add(_recordBookId);
         result.Add(_course);
         return result.ToHashCode();
     }
@@ -100,7 +100,7 @@ public sealed class Student:
                _name.Equals(student._name) &&
                _patronymic.Equals(student._patronymic) &&
                _group.Equals(student._group) &&
-               _zachetka.Equals(student._zachetka) &&
+               _recordBookId.Equals(student._recordBookId) &&
                _course.Equals(student._course);
     }
     

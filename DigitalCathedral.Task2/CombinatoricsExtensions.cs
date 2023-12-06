@@ -1,4 +1,4 @@
-﻿namespace DigitalCathedral;
+﻿namespace DigitalCathedral.Task2;
 
 public static class CombinatoricsExtensions
 {

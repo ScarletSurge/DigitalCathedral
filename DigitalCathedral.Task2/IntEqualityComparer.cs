@@ -1,7 +1,8 @@
-﻿namespace DigitalCathedral;
+﻿namespace DigitalCathedral.Task2;
 
 public sealed class IntEqualityComparer : IEqualityComparer<int>
 {
+    
     private const int EventIntHashCode = 0;
     
     public bool Equals(
@@ -25,4 +26,5 @@ public sealed class IntEqualityComparer : IEqualityComparer<int>
         }
         return obj.GetHashCode();
     }
+    
 }

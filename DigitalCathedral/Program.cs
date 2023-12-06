@@ -70,6 +70,7 @@ flksdflksfd
 //           { +k, x > y
 // IComparable, IComparable<T>, IComparer<T>
 
+using System.Collections;
 using DigitalCathedral;
 // 
 // int value = 11;
@@ -266,27 +267,7 @@ using DigitalCathedral;
 //     // TODO: work with value
 // }
 // 
-// Student s1 = new Student("", "", "", "", "", 3);
-// Student s2 = new Student("", "", "", "", "", 3);
-// Console.WriteLine(s1.Equals(s2));
-// 
-// try
-// {
-//     Student st = new Student("Ivanov", "Ivan", "Ivanovich", "M1O-301B-21", "1234-123-12", 3);
-//     
-//     Console.WriteLine("No exceptions were thrown");
-// }
-// catch (ArgumentNullException ex)
-// {
-//     // 
-//     Console.WriteLine(ex.Message);
-// }
-// catch (ArgumentException ex)
-// {
-//     // 
-//     Console.WriteLine(ex.Message);
-// }
-// Console.WriteLine("after try/catch...");
+
 // 
 // var fraction = new Fraction(2, 5);
 // var fraction2 = new Fraction(1, 7);
@@ -295,14 +276,24 @@ using DigitalCathedral;
 // var multiplicationResult = Fraction.Multiplication(fraction, fraction2);
 // 
 // Console.WriteLine(fraction.CompareTo(fraction2));
+{
+    int value = 10;
+    object o = (object) value;
+    int value1 = (int) o;
+    Console.WriteLine(value1);
+}
 
-try
+var impl = new IEnumerableImpl();
+var iterator = ((IEnumerable)impl).GetEnumerator();
+while (iterator.MoveNext())
 {
-    IEqualityComparer<int> equalityComparer = new IntEqualityComparer();
-    var values = Enumerable.Range(1, 10).ToArray();
-    values.GetCombinations(3, equalityComparer);
+    Console.WriteLine((int)iterator.Current);
 }
-catch (ArgumentException ex)
+
+foreach (var value in impl)
 {
-    Console.WriteLine(ex.Message);
+    Console.WriteLine(value);
 }
+
+//IComparer<T>
+//IEqualityComparer<int>;
