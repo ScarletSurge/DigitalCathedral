@@ -4,7 +4,7 @@ try
 {
     IEqualityComparer<int> equalityComparer = new IntEqualityComparer();
     var i = 0;
-    foreach (var permutation in new IEnumerableImpl().Prepend(8).Append(15).GetAllPermutations(EqualityComparer<int>.Default).Take(1000))
+    foreach (var permutation in new [] { 1, 2, 3 }.GetSetOfAllSubsets(EqualityComparer<int>.Default))
     {
         // Console.Write("[ ");
         // foreach (var permutationComponent in permutation)
